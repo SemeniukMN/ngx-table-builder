@@ -7,7 +7,7 @@
       "projectType": "library",
       "root": "projects/ngx-table-builder",
       "sourceRoot": "projects/ngx-table-builder/src",
-      "prefix": "lib",
+      "prefix": "ngx",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
