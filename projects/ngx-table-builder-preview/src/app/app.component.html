@@ -12,13 +12,29 @@
 
   <ngx-table [data]="data">
 
-    <ngx-cell *ngxCellDef="let context">
-      Column 1
-    </ngx-cell>
+    <ng-container ngxColumnDef="first">
+      <ngx-cell *ngxHeaderCellDef="let context">
+        Header 2
+      </ngx-cell>
+      <ngx-cell *ngxCellDef="let context">
+        Column 1
+      </ngx-cell>
+      <ngx-cell *ngxFooterCellDef="let context">
+        Footer 1
+      </ngx-cell>
+    </ng-container>
 
-    <ngx-cell *ngxCellDef="let context">
-      Column 2 {{context}}
-    </ngx-cell>
+    <ng-container ngxColumnDef="second">
+      <ngx-cell *ngxHeaderCellDef="let context">
+        Header 2
+      </ngx-cell>
+      <ngx-cell *ngxCellDef="let context">
+        Column 2 {{context}}
+      </ngx-cell>
+      <ngx-cell *ngxFooterCellDef="let context">
+        Footer 2
+      </ngx-cell>
+    </ng-container>
 
   </ngx-table>
 

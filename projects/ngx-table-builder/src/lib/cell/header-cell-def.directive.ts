@@ -2,9 +2,9 @@ import { Directive, TemplateRef } from '@angular/core';
 import { Cell } from './cell';
 
 @Directive({
-  selector: '[ngxCellDef]'
+  selector: '[ngxHeaderCellDef]'
 })
-export class CellDefDirective {
+export class HeaderCellDefDirective {
 
   readonly cell: Cell;
 
