@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, ViewChild } from '@angular/core';
-import { CellOutletDirective } from './cell-outlet.directive';
+import { CellOutletDirective } from '../cell/cell-outlet.directive';
 
 @Component({
   selector: 'ngx-row',

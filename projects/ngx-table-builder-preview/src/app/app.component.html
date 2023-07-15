@@ -10,15 +10,15 @@
 
 <div class="content">
 
-  <ngx-table>
+  <ngx-table [data]="data">
 
-    <ngx-column *ngxColumn="let context">
+    <ngx-cell *ngxCellDef="let context">
       Column 1
-    </ngx-column>
+    </ngx-cell>
 
-    <ngx-column *ngxColumn="let context">
+    <ngx-cell *ngxCellDef="let context">
       Column 2 {{context}}
-    </ngx-column>
+    </ngx-cell>
 
   </ngx-table>
 

@@ -7,4 +7,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ngx-table-builder-preview';
+
+  data = [
+    {
+      num: 1,
+      name: 'First row'
+    },
+    {
+      num: 2,
+      name: 'Second row'
+    }
+  ]
 }

@@ -2,3 +2,21 @@
   display: flex;
   flex-direction: column;
 }
+
+ngx-row {
+  border-bottom: 1px solid gray;
+}
+
+ngx-cell {
+  padding: 16px;
+  flex: 1 1;
+
+  & + &, &:first-child {
+    border-left: 1px solid gray;
+  }
+
+  & + &, &:last-child {
+    border-right: 1px solid gray;
+  }
+
+}

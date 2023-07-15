@@ -4,8 +4,8 @@
 
 
 export * from './lib/table/table.component';
-export * from './lib/column/column.component';
-export * from './lib/column/column.directive';
+export * from './lib/cell/cell.component';
+export * from './lib/cell/cell-def.directive';
 export * from './lib/row/row.component';
 export * from './lib/row/row-outlet.directive';
 export * from './lib/ngx-table-builder.service';

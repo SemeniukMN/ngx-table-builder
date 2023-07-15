@@ -3,11 +3,13 @@ import {
   ChangeDetectionStrategy,
   Component,
   ContentChildren,
+  Input,
   OnDestroy,
   QueryList,
-  ViewChild
+  ViewChild,
+  ViewEncapsulation
 } from '@angular/core';
-import { ColumnDirective } from '../column/column.directive';
+import { CellDefDirective } from '../cell/cell-def.directive';
 import { RowOutletDirective } from '../row/row-outlet.directive';
 import { startWith, Subject, takeUntil } from 'rxjs';
 import { RowComponent } from '../row/row.component';
@@ -16,12 +18,15 @@ import { RowComponent } from '../row/row.component';
   selector: 'ngx-table',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss'],
+  encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class TableComponent implements AfterContentInit, OnDestroy {
+export class TableComponent<T> implements AfterContentInit, OnDestroy {
 
-  @ContentChildren(ColumnDirective, {descendants: true}) columns?: QueryList<ColumnDirective>;
+  @ContentChildren(CellDefDirective, {descendants: true}) columns?: QueryList<CellDefDirective>;
   @ViewChild(RowOutletDirective, {static: true}) rowOutlet!: RowOutletDirective;
+
+  @Input() data: T[] = [];
 
   private readonly destroy$ = new Subject<void>();
 
@@ -32,10 +37,12 @@ export class TableComponent implements AfterContentInit, OnDestroy {
       takeUntil(this.destroy$)
     ).subscribe((c) => {
       this.rowOutlet.viewContainer.clear();
-      const {instance} = this.rowOutlet.viewContainer.createComponent(RowComponent);
-      this.columns?.forEach(({templateRef}) => {
-        instance.cellOutlet.viewContainer.createEmbeddedView(templateRef);
-      });
+      this.data.forEach((row) => {
+        const {instance} = this.rowOutlet.viewContainer.createComponent(RowComponent);
+        this.columns?.forEach(({templateRef}) => {
+          instance.cellOutlet.viewContainer.createEmbeddedView(templateRef);
+        });
+      })
     });
   }
 

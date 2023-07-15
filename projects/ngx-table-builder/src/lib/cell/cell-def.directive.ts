@@ -1,9 +1,9 @@
 import { Directive, TemplateRef } from '@angular/core';
 
 @Directive({
-  selector: '[ngxColumnDef]'
+  selector: '[ngxCellDef]'
 })
-export class ColumnDirective {
+export class CellDefDirective {
 
   constructor(readonly templateRef: TemplateRef<any>) {
   }

@@ -1,5 +1,5 @@
 import { Directive, ViewContainerRef } from '@angular/core';
-import { Outlet } from './row-outlet.directive';
+import { Outlet } from '../row/row-outlet.directive';
 
 @Directive({
   selector: '[ngxCellOutlet]'
