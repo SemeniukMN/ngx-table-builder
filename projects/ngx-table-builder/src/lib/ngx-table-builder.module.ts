@@ -11,6 +11,8 @@ import { HeaderCellDefDirective } from './cell/header-cell-def.directive';
 import { FooterCellDefDirective } from './cell/footer-cell-def.directive';
 import { HeaderRowComponent } from './row/header-row.component';
 import { FooterRowComponent } from './row/footer-row.component';
+import { RowLineComponent } from './line/row-line.component';
+import { ColumnLineComponent } from './line/column-line.component';
 
 
 @NgModule({
@@ -27,6 +29,8 @@ import { FooterRowComponent } from './row/footer-row.component';
     RowComponent,
     CellOutletDirective,
     ColumnDefDirective,
+    ColumnLineComponent,
+    RowLineComponent,
   ],
   exports: [
     TableComponent,
@@ -38,7 +42,9 @@ import { FooterRowComponent } from './row/footer-row.component';
     RowOutletDirective,
     HeaderRowComponent,
     FooterRowComponent,
-    RowComponent
+    RowComponent,
+    ColumnLineComponent,
+    RowLineComponent
   ]
 })
 export class NgxTableBuilderModule { }

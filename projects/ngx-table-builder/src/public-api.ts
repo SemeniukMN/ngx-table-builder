@@ -9,6 +9,8 @@ export * from './lib/cell/cell-def.directive';
 export * from './lib/cell/header-cell-def.directive';
 export * from './lib/cell/footer-cell-def.directive';
 export * from './lib/column/column-def.directive';
+export * from './lib/line/column-line.component';
+export * from './lib/line/row-line.component';
 export * from './lib/row/row.component';
 export * from './lib/row/header-row.component';
 export * from './lib/row/footer-row.component';

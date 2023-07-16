@@ -16,6 +16,14 @@ export class AppComponent {
     {
       num: 2,
       name: 'Second row'
+    },
+    {
+      num: 3,
+      name: 'Third row'
+    },
+    {
+      num: 4,
+      name: 'Fourth row'
     }
   ]
 }

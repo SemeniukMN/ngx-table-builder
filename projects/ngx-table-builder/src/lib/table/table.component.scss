@@ -8,30 +8,19 @@ ngx-row, ngx-header-row, ngx-footer-row {
   flex-direction: row;
 }
 
-ngx-row {
-  border-bottom: 1px solid gray;
-}
-
 ngx-header-row {
-  border-top: 2px solid blueviolet;
-  border-bottom: 2px solid blueviolet;
-
+  ngx-row-line {
+    background: blueviolet;
+  }
   ngx-cell {
     padding: 8px 16px;
-
-    & + &, &:first-child {
-      border-left: 2px solid blueviolet;
-    }
-
-    & + &, &:last-child {
-      border-right: 2px solid blueviolet;
-    }
   }
 }
 
 ngx-footer-row {
-  border-bottom: 1px solid gray;
-
+  ngx-row-line {
+    background: blueviolet;
+  }
   ngx-cell {
     padding: 8px 16px;
   }
@@ -40,13 +29,28 @@ ngx-footer-row {
 ngx-cell {
   padding: 16px;
   flex: 1 1;
+}
 
-  & + &, &:first-child {
-    border-left: 1px solid gray;
-  }
+ngx-row-line:first-child,
+ngx-row-line:last-child {
+  height: 2px;
+  background: blueviolet;
+}
 
-  & + &, &:last-child {
-    border-right: 1px solid gray;
-  }
+ngx-header-row + ngx-row-line,
+ngx-row-line:nth-last-child(3) {
+  height: 2px;
+  background: blueviolet;
+}
 
+ngx-column-line {
+  display: block;
+  width: 1px;
+  background: gray;
+}
+
+ngx-row-line {
+  display: block;
+  height: 1px;
+  background: gray;
 }
