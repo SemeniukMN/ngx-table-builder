@@ -3,8 +3,38 @@
   flex-direction: column;
 }
 
+ngx-row, ngx-header-row, ngx-footer-row {
+  display: flex;
+  flex-direction: row;
+}
+
 ngx-row {
   border-bottom: 1px solid gray;
+}
+
+ngx-header-row {
+  border-top: 2px solid blueviolet;
+  border-bottom: 2px solid blueviolet;
+
+  ngx-cell {
+    padding: 8px 16px;
+
+    & + &, &:first-child {
+      border-left: 2px solid blueviolet;
+    }
+
+    & + &, &:last-child {
+      border-right: 2px solid blueviolet;
+    }
+  }
+}
+
+ngx-footer-row {
+  border-bottom: 1px solid gray;
+
+  ngx-cell {
+    padding: 8px 16px;
+  }
 }
 
 ngx-cell {

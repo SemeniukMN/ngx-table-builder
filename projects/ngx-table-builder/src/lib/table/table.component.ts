@@ -12,6 +12,8 @@ import { Subject } from 'rxjs';
 import { RowComponent } from '../row/row.component';
 import { Table } from './table';
 import { Cell } from '../cell/cell';
+import { HeaderRowComponent } from '../row/header-row.component';
+import { FooterRowComponent } from '../row/footer-row.component';
 
 @Component({
   selector: 'ngx-table',
@@ -52,7 +54,7 @@ export class TableComponent<T> implements AfterContentInit, OnDestroy {
 
   private renderHeaderRow() {
     this.headerRowOutlet.viewContainer.clear();
-    const {instance} = this.headerRowOutlet.viewContainer.createComponent(RowComponent);
+    const {instance} = this.headerRowOutlet.viewContainer.createComponent(HeaderRowComponent);
     this.table.columns
       .map(({headerCell}) => headerCell)
       .filter((cell): cell is Cell => !!cell)
@@ -76,7 +78,7 @@ export class TableComponent<T> implements AfterContentInit, OnDestroy {
 
   private renderFooterRow() {
     this.footerRowOutlet.viewContainer.clear();
-    const {instance} = this.footerRowOutlet.viewContainer.createComponent(RowComponent);
+    const {instance} = this.footerRowOutlet.viewContainer.createComponent(FooterRowComponent);
     this.table.columns
       .map(({footerCell}) => footerCell)
       .filter((cell): cell is Cell => !!cell)

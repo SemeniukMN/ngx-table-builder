@@ -9,6 +9,8 @@ import { CellOutletDirective } from './cell/cell-outlet.directive';
 import { ColumnDefDirective } from './column/column-def.directive';
 import { HeaderCellDefDirective } from './cell/header-cell-def.directive';
 import { FooterCellDefDirective } from './cell/footer-cell-def.directive';
+import { HeaderRowComponent } from './row/header-row.component';
+import { FooterRowComponent } from './row/footer-row.component';
 
 
 @NgModule({
@@ -20,6 +22,8 @@ import { FooterCellDefDirective } from './cell/footer-cell-def.directive';
     HeaderCellDefDirective,
     FooterCellDefDirective,
     RowOutletDirective,
+    HeaderRowComponent,
+    FooterRowComponent,
     RowComponent,
     CellOutletDirective,
     ColumnDefDirective,
@@ -32,6 +36,8 @@ import { FooterCellDefDirective } from './cell/footer-cell-def.directive';
     FooterCellDefDirective,
     ColumnDefDirective,
     RowOutletDirective,
+    HeaderRowComponent,
+    FooterRowComponent,
     RowComponent
   ]
 })
