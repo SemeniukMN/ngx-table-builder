@@ -4,10 +4,13 @@
 
 
 export * from './lib/table/table.component';
+export * from './lib/table/table';
+export * from './lib/cell/cell';
 export * from './lib/cell/cell.component';
 export * from './lib/cell/cell-def.directive';
 export * from './lib/cell/header-cell-def.directive';
 export * from './lib/cell/footer-cell-def.directive';
+export * from './lib/column/column';
 export * from './lib/column/column-def.directive';
 export * from './lib/line/column-line.component';
 export * from './lib/line/row-line.component';

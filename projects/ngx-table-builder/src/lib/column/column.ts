@@ -1,10 +1,16 @@
 import { Cell } from '../cell/cell';
+import { signal, WritableSignal } from '@angular/core';
 
 export class Column {
 
-  constructor(readonly code: string,
-              readonly mainCell?: Cell,
-              readonly headerCell?: Cell,
-              readonly footerCell?: Cell) {
+  readonly width: WritableSignal<string | null>;
+
+  mainCell?: Cell;
+  headerCell?: Cell;
+  footerCell?: Cell;
+
+  constructor(readonly code: string, width?: string) {
+    this.width = signal(width ?? null);
   }
+
 }

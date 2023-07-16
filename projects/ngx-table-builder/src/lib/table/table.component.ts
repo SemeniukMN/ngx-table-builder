@@ -2,6 +2,7 @@ import {
   AfterContentInit,
   ChangeDetectionStrategy,
   Component,
+  Injector,
   Input,
   OnDestroy,
   ViewChild,
@@ -40,7 +41,8 @@ export class TableComponent<T> implements AfterContentInit, OnDestroy {
 
   private readonly destroy$ = new Subject<void>();
 
-  constructor(private readonly table: Table) {
+  constructor(readonly table: Table,
+              private readonly injector: Injector) {
   }
 
   ngAfterContentInit() {
@@ -63,7 +65,10 @@ export class TableComponent<T> implements AfterContentInit, OnDestroy {
       .filter((cell): cell is Cell => !!cell)
       .forEach((cell, i, arr) => {
         instance.cellOutlet.viewContainer.createComponent(ColumnLineComponent);
-        instance.cellOutlet.viewContainer.createEmbeddedView(cell.templateRef);
+        instance.cellOutlet.viewContainer.createEmbeddedView(cell.templateRef, {}, {injector: Injector.create({
+          providers: [{provide: Cell, useValue: cell}],
+          parent: this.injector
+        })});
         if (i === arr.length - 1) {
           instance.cellOutlet.viewContainer.createComponent(ColumnLineComponent);
         }
@@ -80,7 +85,10 @@ export class TableComponent<T> implements AfterContentInit, OnDestroy {
         .filter((cell): cell is Cell => !!cell)
         .forEach((cell, i, arr) => {
           instance.cellOutlet.viewContainer.createComponent(ColumnLineComponent);
-          instance.cellOutlet.viewContainer.createEmbeddedView(cell.templateRef);
+          instance.cellOutlet.viewContainer.createEmbeddedView(cell.templateRef, {}, {injector: Injector.create({
+              providers: [{provide: Cell, useValue: cell}],
+              parent: this.injector
+            })});
           if (i === arr.length - 1) {
             instance.cellOutlet.viewContainer.createComponent(ColumnLineComponent);
           }
@@ -97,7 +105,10 @@ export class TableComponent<T> implements AfterContentInit, OnDestroy {
       .filter((cell): cell is Cell => !!cell)
       .forEach((cell, i, arr) => {
         instance.cellOutlet.viewContainer.createComponent(ColumnLineComponent);
-        instance.cellOutlet.viewContainer.createEmbeddedView(cell.templateRef);
+        instance.cellOutlet.viewContainer.createEmbeddedView(cell.templateRef, {}, {injector: Injector.create({
+            providers: [{provide: Cell, useValue: cell}],
+            parent: this.injector
+          })});
         if (i === arr.length - 1) {
           instance.cellOutlet.viewContainer.createComponent(ColumnLineComponent);
         }

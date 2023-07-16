@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Table } from 'ngx-table-builder';
 
 @Component({
   selector: 'app-root',
@@ -26,4 +27,11 @@ export class AppComponent {
       name: 'Fourth row'
     }
   ]
+
+  setWidth(table: Table) {
+    const col = table.columns[0];
+    if (col) {
+      col.width.update((w) => w ? Number.parseInt(w) + 50 + 'px' : '100px');
+    }
+  }
 }

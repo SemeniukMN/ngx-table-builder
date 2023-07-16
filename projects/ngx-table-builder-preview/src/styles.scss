@@ -3,3 +3,60 @@
 html, body {
   font-family: 'Montserrat', sans-serif;
 }
+
+ngx-table {
+  display: inline-flex;
+  flex-direction: column;
+}
+
+ngx-row, ngx-header-row, ngx-footer-row {
+  display: flex;
+  flex-direction: row;
+}
+
+ngx-header-row {
+  ngx-row-line {
+    background: blueviolet;
+  }
+  ngx-cell {
+    padding: 8px 16px;
+  }
+}
+
+ngx-footer-row {
+  ngx-row-line {
+    background: blueviolet;
+  }
+  ngx-cell {
+    padding: 8px 16px;
+  }
+}
+
+ngx-cell {
+  padding: 16px;
+  //flex: 1 1;
+}
+
+ngx-row-line:first-child,
+ngx-row-line:last-child {
+  height: 2px;
+  background: blueviolet;
+}
+
+ngx-header-row + ngx-row-line,
+ngx-row-line:nth-last-child(3) {
+  height: 2px;
+  background: blueviolet;
+}
+
+ngx-column-line {
+  display: block;
+  width: 1px;
+  background: gray;
+}
+
+ngx-row-line {
+  display: block;
+  height: 1px;
+  background: gray;
+}
