@@ -1,32 +1,21 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Table } from 'ngx-table-builder';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent {
   title = 'ngx-table-builder-preview';
+  data$: Observable<any[]>;
 
-  data = [
-    {
-      num: 1,
-      name: 'First row'
-    },
-    {
-      num: 2,
-      name: 'Second row'
-    },
-    {
-      num: 3,
-      name: 'Third row'
-    },
-    {
-      num: 4,
-      name: 'Fourth row'
-    }
-  ]
+  constructor(private readonly http: HttpClient) {
+    this.data$ = this.http.get<any[]>('/assets/mock.json');
+  }
 
   setWidth(table: Table) {
     const col = table.columns[0];

@@ -1,10 +1,7 @@
-import { AfterContentInit, ContentChild, Directive, Input } from '@angular/core';
-import { CellDefDirective } from '../cell/cell-def.directive';
-import { Table } from '../table/table';
-import { Column } from './column';
-import { HeaderCellDefDirective } from '../cell/header-cell-def.directive';
-import { FooterCellDefDirective } from '../cell/footer-cell-def.directive';
-import { Cell } from '../cell/cell';
+import { AfterContentInit, ContentChild, Directive, Input, signal } from '@angular/core';
+import { CellDefDirective, FooterCellDefDirective, HeaderCellDefDirective } from '../cell/cell-def.directive';
+import { Table } from '../core/table';
+import { Column } from '../core/column';
 
 @Directive({
   selector: '[ngxColumnDef]'
@@ -25,10 +22,13 @@ export class ColumnDefDirective implements AfterContentInit {
   }
 
   ngAfterContentInit() {
-    this.column = new Column(this.code, this.width);
-    this.column.headerCell = this.headerCellDef && new Cell(this.headerCellDef.templateRef, this.column.width);
-    this.column.mainCell = this.cellDef && new Cell(this.cellDef.templateRef, this.column.width);
-    this.column.footerCell = this.footerCellDef && new Cell(this.footerCellDef.templateRef, this.column.width);
+    this.column = new Column(
+      this.code,
+      signal(this.width ?? null),
+      this.headerCellDef?.cellDef,
+      this.cellDef?.cellDef,
+      this.footerCellDef?.cellDef
+    );
     this.table.addColumn(this.column);
   }
 

@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgxTableBuilderModule } from 'ngx-table-builder';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,8 @@ import { NgxTableBuilderModule } from 'ngx-table-builder';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgxTableBuilderModule
+    NgxTableBuilderModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

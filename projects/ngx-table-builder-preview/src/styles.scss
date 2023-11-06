@@ -15,20 +15,20 @@ ngx-row, ngx-header-row, ngx-footer-row {
 }
 
 ngx-header-row {
-  ngx-row-line {
-    background: blueviolet;
-  }
   ngx-cell {
     padding: 8px 16px;
+  }
+  ngx-column-line:not(:first-child):not(:last-child) {
+    margin: 8px 0;
   }
 }
 
 ngx-footer-row {
-  ngx-row-line {
-    background: blueviolet;
-  }
   ngx-cell {
     padding: 8px 16px;
+  }
+  ngx-column-line:not(:first-child):not(:last-child) {
+    margin: 8px 0;
   }
 }
 
@@ -37,26 +37,20 @@ ngx-cell {
   //flex: 1 1;
 }
 
-ngx-row-line:first-child,
-ngx-row-line:last-child {
-  height: 2px;
-  background: blueviolet;
+ngx-row-line:not(:first-child):not(:last-child):not(:nth-last-child(3)):not(:nth-child(3)) {
+  display: block;
+  height: 1px;
+  background: lightgray;
 }
 
-ngx-header-row + ngx-row-line,
+ngx-row-line:nth-child(3),
 ngx-row-line:nth-last-child(3) {
   height: 2px;
   background: blueviolet;
 }
 
-ngx-column-line {
-  display: block;
+ngx-column-line:not(:first-child):not(:last-child) {
   width: 1px;
-  background: gray;
-}
-
-ngx-row-line {
-  display: block;
-  height: 1px;
-  background: gray;
+  background: lightgray;
+  margin: 16px 0;
 }

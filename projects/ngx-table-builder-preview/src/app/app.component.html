@@ -10,32 +10,80 @@
 
 <div class="content">
 
-  <button (click)="setWidth(tableRef.table)">Set width</button>
+  <button>Set width</button>
 
-  <div>
+  <div *ngIf="data$|async as data">
     <ngx-table #tableRef [data]="data">
 
-      <ng-container ngxColumnDef="first" width="200px">
+      <ng-container ngxColumnDef="first" width="100px">
         <ngx-cell *ngxHeaderCellDef="let context">
-          Header 2
+          Name
         </ngx-cell>
         <ngx-cell *ngxCellDef="let context">
-          Column 1
+          {{context.name}}
         </ngx-cell>
         <ngx-cell *ngxFooterCellDef="let context">
           Footer 1
         </ngx-cell>
       </ng-container>
 
-      <ng-container ngxColumnDef="second" width="300px">
+      <ng-container ngxColumnDef="second" width="220px">
         <ngx-cell *ngxHeaderCellDef="let context">
-          Header 2
+          Email
         </ngx-cell>
         <ngx-cell *ngxCellDef="let context">
-          Column 2 {{context}}
+          {{context.email}}
         </ngx-cell>
         <ngx-cell *ngxFooterCellDef="let context">
           Footer 2
+        </ngx-cell>
+      </ng-container>
+
+      <ng-container ngxColumnDef="third" width="500px">
+        <ngx-cell *ngxHeaderCellDef="let context">
+          Text
+        </ngx-cell>
+        <ngx-cell *ngxCellDef="let context">
+          {{context.text}}
+        </ngx-cell>
+        <ngx-cell *ngxFooterCellDef="let context">
+          Footer 3
+        </ngx-cell>
+      </ng-container>
+
+      <ng-container ngxColumnDef="fourth" width="200px">
+        <ngx-cell *ngxHeaderCellDef="let context">
+          Date
+        </ngx-cell>
+        <ngx-cell *ngxCellDef="let context">
+          {{context.date}}
+        </ngx-cell>
+        <ngx-cell *ngxFooterCellDef="let context">
+          Footer 3
+        </ngx-cell>
+      </ng-container>
+
+      <ng-container ngxColumnDef="fifth" width="60px">
+        <ngx-cell *ngxHeaderCellDef="let context">
+          Status
+        </ngx-cell>
+        <ngx-cell *ngxCellDef="let context">
+          {{context.size}}
+        </ngx-cell>
+        <ngx-cell *ngxFooterCellDef="let context">
+          Footer 3
+        </ngx-cell>
+      </ng-container>
+
+      <ng-container ngxColumnDef="sixth" width="100px">
+        <ngx-cell *ngxHeaderCellDef="let context">
+          Currency
+        </ngx-cell>
+        <ngx-cell *ngxCellDef="let context">
+          {{context.account}}
+        </ngx-cell>
+        <ngx-cell *ngxFooterCellDef="let context">
+          Footer 3
         </ngx-cell>
       </ng-container>
 
